@@ -1,0 +1,169 @@
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #f3f5fb;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 40px;
+  background: #ffffff;
+  border: 1px solid #e7eaf2;
+  border-radius: 20px;
+  box-shadow: 0 16px 50px rgba(35, 50, 90, 0.08);
+}
+
+.login-brand {
+  display: inline-block;
+  margin-bottom: 36px;
+  color: #202b46;
+  font-size: 25px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.login-brand span {
+  color: #526df5;
+}
+
+.login-eyebrow {
+  margin-bottom: 10px;
+  color: #526df5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.login-card h1 {
+  color: #202b46;
+  font-size: 28px;
+  line-height: 1.3;
+}
+
+.login-description {
+  margin: 12px 0 28px;
+  color: #737d91;
+  line-height: 1.6;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-form label {
+  color: #303b53;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #dce1ec;
+  border-radius: 9px;
+  outline: none;
+  font: inherit;
+}
+
+.login-form input:focus {
+  border-color: #526df5;
+  box-shadow: 0 0 0 3px rgba(82, 109, 245, 0.12);
+}
+
+.login-button {
+  margin-top: 10px;
+  padding: 14px;
+  border: none;
+  border-radius: 9px;
+  background: #526df5;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: #4059dc;
+}
+
+.login-error {
+  color: #c0392b;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.login-footer {
+  margin-top: 24px;
+  color: #737d91;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-footer a,
+.back-button {
+  color: #526df5;
+}
+
+.login-footer a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-button {
+  display: block;
+  margin: 22px auto 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 28px 22px;
+  }
+
+  .login-card h1 {
+    font-size: 24px;
+  }
+}
+
+
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 65px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  border: none;
+  background: transparent;
+  color: #526df5;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-notice {
+  margin-top: 18px;
+  color: #7b8498;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
