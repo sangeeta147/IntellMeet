@@ -1,0 +1,16 @@
+
+.settings-page {
+  padding: 24px;
+}
+
+.settings-page h1 {
+  margin-bottom: 8px;
+  color: #202938;
+  font-size: 28px;
+}
+
+.settings-page > p {
+  margin-bottom: 28px;
+  color: #6b7280;
+  line-height: 1.6;
+}

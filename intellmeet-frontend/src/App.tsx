@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
@@ -5,6 +6,7 @@ import Meetings from "./pages/Meetings";
 import Tasks from "./pages/Tasks";
 import WorkSpace from "./pages/WorkSpace";
 import Signup from "./pages/Signup";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/workspace" element={<WorkSpace />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </BrowserRouter>
   );
