@@ -7,3 +7,287 @@
 body {
   font-family: Arial, sans-serif;
 }
+
+
+/* Application theme variables */
+:root {
+  color-scheme: light;
+  --app-bg: #f5f7fb;
+  --app-surface: #ffffff;
+  --app-text: #202938;
+  --app-muted: #6b7280;
+  --app-border: #e5e7eb;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --app-bg: #111827;
+  --app-surface: #1f2937;
+  --app-text: #f3f4f6;
+  --app-muted: #9ca3af;
+  --app-border: #374151;
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+/* Shared surfaces */
+.settings-page,
+.dashboard-main {
+  color: var(--app-text);
+}
+
+.settings-card {
+  background: var(--app-surface);
+  border-color: var(--app-border);
+}
+
+.settings-page h1,
+.settings-card h2 {
+  color: var(--app-text);
+}
+
+.settings-page p,
+.settings-description {
+  color: var(--app-muted);
+}
+
+.settings-input {
+  background: var(--app-surface);
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+.settings-option {
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+:root[data-theme="dark"] .sidebar {
+  background: #111827;
+  color: #f3f4f6;
+}
+
+:root[data-theme="dark"] .sidebar .nav-link {
+  color: #d1d5db;
+}
+
+:root[data-theme="dark"] .sidebar .nav-link.active {
+  background: #374151;
+  color: #ffffff;
+}
+
+
+/* Global dark theme */
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .dashboard-main {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+}
+
+/* Common dashboard surfaces */
+:root[data-theme="dark"] .dashboard-card,
+:root[data-theme="dark"] .stat-card,
+:root[data-theme="dark"] .meeting-card,
+:root[data-theme="dark"] .task-card,
+:root[data-theme="dark"] .workspace-card,
+:root[data-theme="dark"] .settings-card {
+  background-color: var(--app-surface);
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+/* Common headings and descriptions */
+:root[data-theme="dark"] .dashboard-main h1,
+:root[data-theme="dark"] .dashboard-main h2,
+:root[data-theme="dark"] .dashboard-main h3 {
+  color: var(--app-text);
+}
+
+/* Form controls */
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select {
+  background-color: var(--app-surface);
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+  color: var(--app-muted);
+}
+
+
+/* ===== IntellMeet: Complete Dark Mode Fix ===== */
+
+/* Main page background and text */
+:root[data-theme="dark"] .dashboard {
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+:root[data-theme="dark"] .dashboard-main {
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+/* Dashboard quick-action cards */
+:root[data-theme="dark"] .action-card {
+  background: var(--app-surface);
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+:root[data-theme="dark"] .action-card strong {
+  color: var(--app-text);
+}
+
+:root[data-theme="dark"] .action-card small {
+  color: var(--app-muted);
+}
+
+/* Meeting cards */
+:root[data-theme="dark"] .meeting-card,
+:root[data-theme="dark"] .meeting-form {
+  color: var(--app-text);
+}
+
+:root[data-theme="dark"] .meeting-card {
+  background: var(--app-surface);
+  border-color: var(--app-border);
+}
+
+:root[data-theme="dark"] .meeting-details h3,
+:root[data-theme="dark"] .meeting-form label {
+  color: var(--app-text);
+}
+
+:root[data-theme="dark"] .meeting-details p {
+  color: var(--app-muted);
+}
+
+:root[data-theme="dark"] .meeting-form input,
+:root[data-theme="dark"] .meeting-form select {
+  background: var(--app-surface);
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+/* Workspace team-member cards */
+:root[data-theme="dark"] .team-card {
+  background: var(--app-surface);
+  color: var(--app-text);
+  border-color: var(--app-border);
+  box-shadow: none;
+}
+
+:root[data-theme="dark"] .team-card h3 {
+  color: var(--app-text);
+}
+
+:root[data-theme="dark"] .team-card p {
+  color: var(--app-muted);
+}
+
+/* Workspace and dashboard bottom panels */
+:root[data-theme="dark"] .bottom-panel {
+  background: var(--app-surface);
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+:root[data-theme="dark"] .bottom-panel h2 {
+  color: var(--app-text);
+}
+
+:root[data-theme="dark"] .bottom-panel p {
+  color: var(--app-muted);
+}
+
+/* Dashboard headings and supporting text */
+:root[data-theme="dark"] .section-heading h2,
+:root[data-theme="dark"] .topbar h1,
+:root[data-theme="dark"] .profile-name {
+  color: var(--app-text);
+}
+
+:root[data-theme="dark"] .section-heading p,
+:root[data-theme="dark"] .profile-role,
+:root[data-theme="dark"] .page-label {
+  color: var(--app-muted);
+}
+
+/* Form fields throughout the application */
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select {
+  background-color: var(--app-surface);
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+  color: var(--app-muted);
+}
+
+/* Settings page */
+:root[data-theme="dark"] .settings-card {
+  background: var(--app-surface);
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+:root[data-theme="dark"] .settings-card h2,
+:root[data-theme="dark"] .settings-label,
+:root[data-theme="dark"] .settings-option {
+  color: var(--app-text);
+}
+
+:root[data-theme="dark"] .settings-description {
+  color: var(--app-muted);
+}
+
+
+/* Softer welcome banner in dark mode */
+:root[data-theme="dark"] .welcome-section {
+  background: linear-gradient(120deg, #273449, #373763);
+  color: #f3f4f6;
+}
+
+:root[data-theme="dark"] .welcome-section .eyebrow {
+  color: #c7d2fe;
+}
+
+:root[data-theme="dark"] .welcome-text {
+  color: #d1d5db;
+}
+
+:root[data-theme="dark"] .welcome-icon {
+  color: #a5b4fc;
+}
+
+/* Softer accent colors */
+:root[data-theme="dark"] .action-icon,
+:root[data-theme="dark"] .team-avatar,
+:root[data-theme="dark"] .meeting-date {
+  background: #303650;
+  color: #a5b4fc;
+}
+
+:root[data-theme="dark"] .text-button,
+:root[data-theme="dark"] .team-member-status {
+  color: #a5b4fc;
+}
+
+:root[data-theme="dark"] .bottom-panel .eyebrow {
+  color: #a5b4fc;
+}
+
+:root[data-theme="dark"] .intelligence-icon {
+  color: #a5b4fc;
+}
+

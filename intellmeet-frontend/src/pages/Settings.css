@@ -1,16 +1,128 @@
 
 .settings-page {
+  max-width: 900px;
   padding: 24px;
+  margin: 0 auto;
 }
 
-.settings-page h1 {
+.settings-header {
+  margin-bottom: 28px;
+}
+
+.settings-header h1 {
   margin-bottom: 8px;
   color: #202938;
   font-size: 28px;
 }
 
-.settings-page > p {
-  margin-bottom: 28px;
+.settings-header p,
+.settings-description {
   color: #6b7280;
+  font-size: 14px;
   line-height: 1.6;
+}
+
+.settings-card {
+  padding: 24px;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.settings-card h2 {
+  margin-bottom: 8px;
+  color: #202938;
+  font-size: 19px;
+}
+
+.settings-description {
+  margin-bottom: 20px;
+}
+
+.settings-label {
+  display: block;
+  margin: 16px 0 8px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.settings-input {
+  display: block;
+  width: 100%;
+  padding: 11px 12px;
+  color: #202938;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.settings-input:focus {
+  outline: 2px solid #526df5;
+  outline-offset: 2px;
+}
+
+.settings-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  color: #374151;
+  border-bottom: 1px solid #f0f1f4;
+}
+
+.settings-option:last-child {
+  border-bottom: none;
+}
+
+.settings-option input {
+  width: 18px;
+  height: 18px;
+  accent-color: #526df5;
+  cursor: pointer;
+}
+
+.settings-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.settings-save-button {
+  padding: 12px 20px;
+  color: #ffffff;
+  background: #526df5;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.settings-save-button:hover {
+  background: #4058db;
+}
+
+.settings-success {
+  color: #15803d;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .settings-page {
+    padding: 16px;
+  }
+
+  .settings-card {
+    padding: 18px;
+  }
+
+  .settings-header h1 {
+    font-size: 24px;
+  }
 }
