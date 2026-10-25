@@ -1,3 +1,4 @@
+
 const jwt = require("jsonwebtoken");
 
 const generateAccessToken = (userId) => {
@@ -5,7 +6,7 @@ const generateAccessToken = (userId) => {
         { userId },
         process.env.JWT_SECRET,
         {
-            expiresIn: process.env.JWT_EXPIRES_IN,
+            expiresIn: process.env.JWT_EXPIRES_IN || "15m",
         }
     );
 };
@@ -15,7 +16,7 @@ const generateRefreshToken = (userId) => {
         { userId },
         process.env.JWT_SECRET,
         {
-            expiresIn : "7d",
+            expiresIn: process.env.JWT_REFRESH_EXPIRES_IN || "7d",
         }
     );
 };

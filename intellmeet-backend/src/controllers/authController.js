@@ -13,30 +13,38 @@ const signup = async (req, res) => {
     const { name, email, password } = req.body;
 
     // Validate required fields
-    if (!name || !email || !password) {
+    if (
+      typeof name !== "string" ||
+      typeof email !== "string" ||
+      typeof password !== "string" ||
+      !name.trim() ||
+      !email.trim() ||
+      !password
+    ) {
       return res.status(400).json({
         success: false,
-        message: "Name, email, and password are required",
+        message: "Name, email, and password are required.",
       });
     }
 
     if (password.length < 8) {
       return res.status(400).json({
         success: false,
-        message: "Password must be at least 8 characters long",
+        message: "Password must be at least 8 characters long.",
       });
     }
 
-    const normalizedEmail = email.toLowerCase().trim();
+    const normalizedEmail = email.trim().toLowerCase();
 
+    // Check whether the account already exists
     const existingUser = await User.findOne({
       email: normalizedEmail,
     });
 
     if (existingUser) {
-      return res.status(400).json({
+      return res.status(409).json({
         success: false,
-        message: "User already exists. Please log in instead.",
+        message: "This email is already registered. Please log in.",
       });
     }
 
@@ -49,6 +57,7 @@ const signup = async (req, res) => {
       password: hashedPassword,
     });
 
+    // Generate authentication tokens
     const accessToken = generateAccessToken(user._id);
     const refreshToken = generateRefreshToken(user._id);
 
@@ -57,7 +66,7 @@ const signup = async (req, res) => {
 
     return res.status(201).json({
       success: true,
-      message: "User registered successfully",
+      message: "User registered successfully.",
       accessToken,
       refreshToken,
       user: {
@@ -67,6 +76,7 @@ const signup = async (req, res) => {
       },
     });
   } catch (error) {
+    // Do not log passwords or authentication tokens
     console.error("Signup error:", error.message);
 
     if (error.code === 11000) {
@@ -78,7 +88,7 @@ const signup = async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      message: "An internal server error occurred during signup",
+      message: "An internal server error occurred during signup.",
     });
   }
 };
@@ -89,29 +99,42 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     // Validate required fields
-    if (!email || !password) {
+    if (
+      typeof email !== "string" ||
+      typeof password !== "string" ||
+      !email.trim() ||
+      !password
+    ) {
       return res.status(400).json({
         success: false,
-        message: "Email and password are required",
+        message: "Email and password are required.",
       });
     }
 
-    const normalizedEmail = email.toLowerCase().trim();
+    const normalizedEmail = email.trim().toLowerCase();
 
+    // Find the existing user
     const user = await User.findOne({
-      email: normalizedEmail,
-    });
+    email: normalizedEmail,
+   }).select("+password");
 
-    // Handle missing users or missing password hashes safely
+    // Safe temporary debugging logs
+    console.log("========== LOGIN DEBUG ==========");
+    console.log("User found:", Boolean(user));
+    console.log("Password hash exists:", Boolean(user?.password));
+
     if (!user || !user.password) {
       return res.status(400).json({
         success: false,
-        message:
-          "Invalid credentials. Please sign up or check your details.",
+        message: "Invalid credentials. Please check your details.",
       });
     }
 
+    // Compare the submitted password with the stored hash
     const isMatch = await bcrypt.compare(password, user.password);
+
+    console.log("Password matches:", isMatch);
+    console.log("=================================");
 
     if (!isMatch) {
       return res.status(400).json({
@@ -120,6 +143,7 @@ const login = async (req, res) => {
       });
     }
 
+    // Generate new tokens after successful authentication
     const accessToken = generateAccessToken(user._id);
     const refreshToken = generateRefreshToken(user._id);
 
@@ -128,7 +152,7 @@ const login = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: "Login successful",
+      message: "Login successful.",
       accessToken,
       refreshToken,
       user: {
@@ -138,14 +162,16 @@ const login = async (req, res) => {
       },
     });
   } catch (error) {
-    // Never log plain-text passwords or authentication tokens
     console.error("Login error:", error.message);
 
     return res.status(500).json({
       success: false,
-      message: "An internal server error occurred during login",
+      message: "An internal server error occurred during login.",
     });
   }
 };
 
-module.exports = { signup, login };
+module.exports = {
+  signup,
+  login,
+};
